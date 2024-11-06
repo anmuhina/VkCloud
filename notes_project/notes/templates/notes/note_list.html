@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dictionary</title>
+    <style>
+        body {
+        background-color:#FAFAD2;
+        font-size: 30px;
+        }
+        h1 {
+        color: #C71585;
+        font-size: 70px;
+        }
+        a {
+        margin-right: 20px;
+        }
+        button {
+        padding: 10px 15px;
+        margin-right: 30px;
+        background-color: #C71585;
+        color: white;
+        border: solid;
+        border-color: white;
+        border-radius: 5px;
+        font-size: 20px;
+        }
+  </style>
+</head>
+<body>
+    <h1>Dictionary</h1>
+    <a href="{% url 'note_create' %}">Create a new note</a>
+    <ol>
+        {% for note in notes %}
+            <li style = "color: #C71585">
+                <strong style="font-size: 40px">{{ note.title }}</strong><br>
+                {{ note.content }}<br>
+                <a href="{% url 'note_edit' note.pk %}">Edit</a>
+                <a href="{% url 'note_delete' note.pk %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ol>
+<form action="{% url 'logout' %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Logout</button>
+</form>
+</body>
+</html>

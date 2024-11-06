@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <style>
+        body {
+        background-color:#FAFAD2;
+        font-size: 20px;
+        }
+        button {
+        padding: 10px 15px;
+        margin: 5px;
+        width: 100px;
+        border-radius: 5px;
+        font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+<h2>Registration</h2>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button style = "background-color: #C71585;
+        color: white;
+        border: solid;
+        border-color: white;" type="submit">Submit</button>
+</form>
+<a href="{% url 'login' %}">
+    <button style = "background-color: white;
+        color: #C71585;
+        border: solid;
+        border-color: #C71585;">Login</button>
+</a>
+</body>
+</html>
